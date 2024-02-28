@@ -477,7 +477,7 @@ void mcpwm_foc_init(mc_configuration *conf_m1, mc_configuration *conf_m2) {
 		if (!m_dccal_done) {
 			float v_in_last = mc_interface_get_input_voltage_filtered();
 			systime_t v_in_stable_time = chVTGetSystemTimeX();
-			while (UTILS_AGE_S(v_in_stable_time) < 2.0) {
+			while (UTILS_AGE_S(v_in_stable_time) < 0.2) { //reduct from 2s to 0.2s the voltage are stable
 				chThdSleepMilliseconds(1);
 
 				float v_in_now = mc_interface_get_input_voltage_filtered();
@@ -2302,7 +2302,7 @@ int mcpwm_foc_dc_cal(bool cal_undriven) {
 		}
 	};
 
-	chThdSleepMilliseconds(1000);
+	chThdSleepMilliseconds(100); //reduct from 1000 to 100 i not know why we have a delay
 
 	// Disable timeout
 	systime_t tout = timeout_get_timeout_msec();
@@ -2313,7 +2313,7 @@ int mcpwm_foc_dc_cal(bool cal_undriven) {
 
 	// Measure driven offsets
 
-	const float samples = 1000.0;
+	const float samples = 200.0; //reduct from 1000 to 200 test and no see difference on offset.
 	float current_sum[3] = {0.0, 0.0, 0.0};
 	float voltage_sum[3] = {0.0, 0.0, 0.0};
 
