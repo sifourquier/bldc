@@ -23,6 +23,10 @@
 #define HW_UBOX_SINGLE_80
 #define MCCONF_L_MAX_VOLTAGE	72.0
 
+#define HW_LIM_CURRENT			-150.0, 150.0
+#define HW_LIM_CURRENT_IN		-150.0, 150.0
+#define HW_LIM_CURRENT_ABS		0.0, 250.0
+
 #include "hw_ubox_100_core.h"
 
 #endif /* HW_UBOX_SINGLE_80_H_ */
