@@ -264,7 +264,7 @@
 // Setting limits
 #define HW_LIM_CURRENT			-135.0, 135.0
 #define HW_LIM_CURRENT_IN		-135.0, 135.0
-#define HW_LIM_CURRENT_ABS		0.0, 180.0
+#define HW_LIM_CURRENT_ABS		0.0, 250.0
 
 #ifdef HW_UBOX_SINGLE_80
 	#define HW_LIM_VIN				11.0, 76.0
